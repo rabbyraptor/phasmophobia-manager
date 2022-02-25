@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main>
+      <UserInterface />
+      <ActiveContracts />
+      <GhostHunters />
+      <GhostContracts />
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GhostHunters from "./components/GhostHunters.vue";
+import GhostContracts from "./components/GhostContracts.vue";
+import UserInterface from "./components/UserInterface.vue";
+import ActiveContracts from "./components/ActiveContracts.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    GhostHunters,
+    GhostContracts,
+    UserInterface,
+    ActiveContracts,
+  },
+};
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>
