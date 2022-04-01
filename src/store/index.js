@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+/* const findContract = function (contract) {
+  return state.contractCollection.find(item => item.id == contract.id)
+} */
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -35,37 +39,38 @@ export default new Vuex.Store({
     contractCollection: [
       {
         id: 0,
+        status: "available",
         location: {
           name: "Tanglewood Street House",
           size: "Small",
           baseReward: 750,
         },
-        cost: 200,
+        cost: 100,
         timeLeft: 3
       },
       {
         id: 1,
+        status: "available",
         location: {
           name: "Bleasdale Farm House",
           size: "Medium",
           baseReward: 1800,
         },
-        cost: 600,
+        cost: 100,
         timeLeft: 5
       },
       {
         id: 2,
+        status: "available",
         location: {
           name: "Grafton Farm House",
           size: "Medium",
           baseReward: 3500,
         },
-        cost: 1000,
+        cost: 100,
         timeLeft: 10
       }
     ],
-    activeContracts: [],
-    finishedContracts: []
   },
   getters: {
     user(state) {
@@ -77,72 +82,64 @@ export default new Vuex.Store({
     hunters(state) {
       return state.hunterCollection
     },
-    contracts(state) {
-      return state.contractCollection
+    availableContracts(state) {
+      return state.contractCollection.filter(contract => contract.status == "available")
     },
     activeContracts(state) {
-      return state.activeContracts
+      return state.contractCollection.filter(contract => contract.status == "active")
     },
     finishedContracts(state) {
-      return state.finishedContracts
+      return state.contractCollection.filter(contract => contract.status == "done")
     },
   },
   mutations: {
     removeHunterFromList(state, hunter) {
       state.hunterCollection.splice(state.hunterCollection.indexOf(hunter), 1);
     },
-    addHunterToList(state, hunter) {
-      state.hunterCollection.push(hunter);
+    addHunterToList(state, hunters) {
+      hunters.forEach(hunter => {
+        state.hunterCollection.push(hunter);
+      });
     },
     subtractCostFromCash(state, cost) {
       state.user.cash -= cost;
     },
     addCostToContract(state, { cost, contract }) {
-      let index = state.activeContracts.indexOf(contract)
-      state.activeContracts[index] = { ...contract, cost: cost }
+      state.contractCollection.find(item => item.id == contract.id).cost = cost
+    },
+    addHuntersToContract(state, contract) {
+      state.contractCollection.find(item => item.id == contract.id).hunters = contract.hunters
     },
     addContractToActiveContracts(state, contract) {
-      state.activeContracts.push(contract)
+      state.contractCollection.find(item => item.id == contract.id).status = "active"
     },
-    removeContractFromContractCollection(state, contract) {
-      state.contractCollection.splice(state.contractCollection.indexOf(contract), 1);
+    addContractToFinishedContracts(state, id) {
+      state.contractCollection.find(item => item.id == id).status = "done"
     },
-    removeContractFromActiveContracts(state, contract) {
-      state.activeContracts.splice(state.activeContracts.indexOf(contract), 1);
-    },
-    addContractToFinishedContracts(state, contract) {
-      state.finishedContracts.push(contract);
-    },
-    subtractOneSecondFromContract(state, contract) {
-      let index = state.activeContracts.indexOf(contract);
-      state.activeContracts[index].timeLeft -= 1;
-    },
-    calculateCash(state, contract) {
-      let index = state.finishedContracts.indexOf(contract);
-      state.user.cash += state.finishedContracts[index].location.baseReward - state.finishedContracts[index].cost
+    subtractOneSecondFromContracts(state, id) {
+      state.contractCollection.find(item => item.id == id).timeLeft -= 1;
     },
     removeContractFromFinishedContracts(state, contract) {
-      let index = state.finishedContracts.indexOf(contract)
-      state.finishedContracts.splice(index, 1);
-    }
+      let index = state.contractCollection.indexOf(contract)
+      state.contractCollection.splice(index, 1);
+    },
   },
   actions: {
     startContract({ commit }, { cost, contract }) {
       commit('subtractCostFromCash', cost)
+      commit('addHuntersToContract', { ...contract })
       commit('addContractToActiveContracts', { ...contract })
-      commit('removeContractFromContractCollection', contract)
       commit('addCostToContract', { cost, contract })
     },
-    endContract({ commit }, contract) {
-      commit('addContractToFinishedContracts', contract)
-      commit('removeContractFromActiveContracts', contract)
+    endContract({ commit }, id) {
+      commit('addContractToFinishedContracts', id)
     },
-    finishContract({ commit }, contract) {
-      commit('removeContractFromActiveContracts', contract)
-      contract.hunters.forEach(hunter => {
-        commit('addHunterToList', hunter)
-      });
-      commit('calculateCash', contract)
+    finishContract({ commit, state }, contract) {
+      commit('addHunterToList', contract.hunters)
+      let theContract = state.contractCollection.find(item => item.id == contract.id);
+      state.user.cash += theContract.location.baseReward - theContract.cost
+
+      //commit('calculateCash', contract, getters )
       commit('removeContractFromFinishedContracts', contract)
     },
   },
