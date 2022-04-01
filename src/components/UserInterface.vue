@@ -23,6 +23,7 @@ export default {
   left: 0;
   width: 100%;
   border-bottom: 2px solid #222;
+  background-color: #fff;
 }
 
 .ui {
