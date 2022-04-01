@@ -23,6 +23,25 @@ export default {
     UserInterface,
     ActiveContracts,
   },
+  computed: {
+    activeContracts() {
+      return this.$store.getters.activeContracts;
+    },
+  },
+  methods: {
+    update() {
+      setInterval(() => {
+        this.activeContracts.forEach((contract) => {
+          if (contract.timeLeft > 1) {
+            this.$store.commit("subtractOneSecondFromContracts", contract.id);
+          } else this.$store.dispatch("endContract", contract.id);
+        });
+      }, 1000);
+    },
+  },
+  mounted() {
+    this.update();
+  },
 };
 </script>
 
