@@ -22,6 +22,7 @@
           <h1>{{ contractDetails.location.name }}</h1>
           <p>Size: {{ contractDetails.location.size }}</p>
           <p>Difficulty: Amateur</p>
+          <p>Reward: ${{ contractDetails.location.baseReward }}</p>
           <br />
         </div>
         <div class="body">
@@ -83,7 +84,7 @@ export default {
   data() {
     return {
       contractDetails: null,
-      contracts: this.$store.getters.contracts,
+
       activeContracts: this.$store.getters.activeContracts,
       chosenTeam: [],
       showAvailableHunters: false,
@@ -94,6 +95,9 @@ export default {
     this.hunters = this.$store.getters.hunters;
   },
   computed: {
+    contracts() {
+      return this.$store.getters.availableContracts;
+    },
     teamExpenses() {
       return this.chosenTeam.length * 50;
     },
