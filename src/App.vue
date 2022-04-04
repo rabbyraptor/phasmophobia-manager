@@ -56,7 +56,7 @@ export default {
 <style lang="scss">
 // Import custom SASS variable overrides, or alternatively
 // define your variable overrides here instead
-@import "assets/style/Variables.scss";
+@import "assets/style/variables.scss";
 
 // Import Bootstrap and BootstrapVue source SCSS files
 @import "~bootstrap/scss/bootstrap.scss";
