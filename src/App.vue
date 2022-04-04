@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <main>
+      <Modals />
       <UserInterface />
       <b-container class="mt-5" fluid="sm">
         <b-row align-h="around">
@@ -19,6 +20,7 @@ import GhostHunters from "./components/GhostHunters.vue";
 import GhostContracts from "./components/GhostContracts.vue";
 import UserInterface from "./components/UserInterface.vue";
 import ActiveContracts from "./components/ActiveContracts.vue";
+import Modals from "./components/data/Modals.vue";
 
 export default {
   name: "App",
@@ -27,6 +29,7 @@ export default {
     GhostContracts,
     UserInterface,
     ActiveContracts,
+    Modals,
   },
   computed: {
     activeContracts() {

@@ -3,7 +3,7 @@
     <b-row align-h="center" align-v="center">
       <b-col>
         <div class="hunters pl-4 pt-4">
-          <h2>Hunters:</h2>
+          <h2 v-b-modal.modal-hunters>Hunters:</h2>
           <ul>
             <li v-for="hunter in hunters" :key="hunter.id">
               {{ hunter.name }}

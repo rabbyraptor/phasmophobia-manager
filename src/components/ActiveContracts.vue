@@ -3,7 +3,9 @@
     <b-row align-h="center" align-v="center">
       <b-col>
         <div class="contracts mr-3 p-4">
-          <h2 class="text-decoration-underline">Active contracts:</h2>
+          <h2 class="text-decoration-underline" v-b-modal.modal-contracts>
+            Active contracts:
+          </h2>
           <div v-if="activeContracts.length < 1">
             <p class="font-weight-bold">None</p>
           </div>
@@ -17,7 +19,12 @@
       </b-col>
       <b-col>
         <div class="contracts ml-3 p-4">
-          <h2 class="text-decoration-underline">Finished contracts:</h2>
+          <h2
+            class="text-decoration-underline"
+            v-b-modal.modal-finished-contracts
+          >
+            Finished contracts:
+          </h2>
           <div v-if="finishedContracts.length < 1">
             <p class="font-weight-bold">None</p>
           </div>

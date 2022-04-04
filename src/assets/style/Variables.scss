@@ -28,6 +28,10 @@ li::marker{
   padding: auto;
 }
 
+.modal-footer {
+  flex-wrap: nowrap !important;
+}
+
 .container,
 .container-fluid,
 .container-sm,

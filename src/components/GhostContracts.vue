@@ -3,7 +3,7 @@
     <b-row align-h="center" align-v="center">
       <b-col>
         <div class="contracts p-4">
-          <h2>Contracts</h2>
+          <h2 v-b-modal.modal-contracts>Contracts</h2>
           <b-container cols="12">
             <b-row align-h="between" align-v="center">
               <b-col

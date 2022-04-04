@@ -10,7 +10,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {
-      cash: 500
+      cash: 500,
+      points: 10,
     },
     locationCollection: [
       {
