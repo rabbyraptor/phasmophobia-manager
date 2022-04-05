@@ -2,6 +2,8 @@
   <div id="modal-wrapper">
     <!-- Main Menu Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-main-menu"
       title="Main Menu"
       :header-bg-variant="headerBgVariant"
@@ -34,6 +36,8 @@
 
     <!-- Cash Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-cash"
       title="Cash"
       :header-bg-variant="headerBgVariant"
@@ -66,6 +70,8 @@
 
     <!-- Points Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-points"
       title="Points"
       :header-bg-variant="headerBgVariant"
@@ -98,6 +104,8 @@
 
     <!-- Journal Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-journal"
       title="Journal"
       :header-bg-variant="headerBgVariant"
@@ -130,6 +138,8 @@
 
     <!-- Inventory Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-inventory"
       title="Inventory"
       :header-bg-variant="headerBgVariant"
@@ -162,6 +172,8 @@
 
     <!-- Equipment Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-equipment"
       title="Equipment"
       :header-bg-variant="headerBgVariant"
@@ -194,6 +206,8 @@
 
     <!-- Areas Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-areas"
       title="Areas"
       :header-bg-variant="headerBgVariant"
@@ -226,6 +240,8 @@
 
     <!-- Evidence Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-evidence"
       title="Evidence"
       :header-bg-variant="headerBgVariant"
@@ -258,6 +274,8 @@
 
     <!-- Profile Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-profile"
       title="Profile"
       :header-bg-variant="headerBgVariant"
@@ -290,6 +308,8 @@
 
     <!-- Staff Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-staff"
       title="Staff"
       :header-bg-variant="headerBgVariant"
@@ -322,6 +342,8 @@
 
     <!-- Management Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-management"
       title="Management"
       :header-bg-variant="headerBgVariant"
@@ -354,6 +376,8 @@
 
     <!-- Finished contracts Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-finished-contracts"
       title="Finished contracts"
       :header-bg-variant="headerBgVariant"
@@ -386,6 +410,8 @@
 
     <!-- Active contracts Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-active-contracts"
       title="Active contracts"
       :header-bg-variant="headerBgVariant"
@@ -418,6 +444,8 @@
 
     <!-- Hunters Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-hunters"
       title="Hunters"
       :header-bg-variant="headerBgVariant"
@@ -449,6 +477,8 @@
     <!-- Hunters END -->
     <!-- Contracts Modal Template -->
     <b-modal
+      scrollable
+      centered
       id="modal-contracts"
       title="Contracts"
       :header-bg-variant="headerBgVariant"
