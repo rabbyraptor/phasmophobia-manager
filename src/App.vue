@@ -1,19 +1,26 @@
 <template>
   <div id="app">
     <main>
+      <Modals />
       <UserInterface />
-      <ActiveContracts />
-      <GhostHunters />
-      <GhostContracts />
+      <b-container class="mt-5" fluid="sm">
+        <b-row align-h="around">
+          <b-col>
+            <ActiveContracts />
+            <GhostHunters />
+            <GhostContracts />
+          </b-col>
+        </b-row>
+      </b-container>
     </main>
   </div>
 </template>
-
 <script>
 import GhostHunters from "./components/GhostHunters.vue";
 import GhostContracts from "./components/GhostContracts.vue";
 import UserInterface from "./components/UserInterface.vue";
 import ActiveContracts from "./components/ActiveContracts.vue";
+import Modals from "./components/data/Modals.vue";
 
 export default {
   name: "App",
@@ -22,6 +29,7 @@ export default {
     GhostContracts,
     UserInterface,
     ActiveContracts,
+    Modals,
   },
   computed: {
     activeContracts() {
@@ -45,4 +53,12 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+// Import custom SASS variable overrides, or alternatively
+// define your variable overrides here instead
+@import "assets/style/variables.scss";
+
+// Import Bootstrap and BootstrapVue source SCSS files
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap-vue/src/index.scss";
+</style>

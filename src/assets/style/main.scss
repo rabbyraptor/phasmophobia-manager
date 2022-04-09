@@ -1,45 +1,70 @@
-@import "./vars";
-
+  @import "./Variables.scss";
+  @import url("https://use.typekit.net/bjl2fzp.css");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 10px;
 }
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+body {
+  font-family: chaloops, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #2c3e50;
-  padding-top: 8rem;
-}
-
-main {
-  max-width: $desktop-screen-width;
-  margin: auto;
-  padding: 2rem;
-}
-
-section {
-  margin-bottom: 4rem;
+  background-image: url("../images/bg.jpg");
+  background-size: auto;
+  background-repeat:repeat;
 }
 
 h1 {
-  font-size: 3rem;
+  font-family: chaloops, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.8rem;
 }
 
 h2 {
-  font-size: 2.4rem;
+  font-family: chaloops, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-family: chaloops, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.2rem;
 }
 
 p,
-li,
-b,
-button {
-  font-size: 1.6rem;
+li {
+  font-family: chaloops, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  list-style-position: inside;
+  margin-bottom: 0;
+}
+
+b, button {
+  font-family: chaloops, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.contracts, .hunters{
+  background:rgba(255, 255, 255, 0.7);
+  border:2px #222 solid;
+  border-radius: 8px;
+}
+
+.hunters ul{
+  overflow:hidden
+}
+.hunters ul li{
+  display:inline;
+  padding:0.335rem;
 }

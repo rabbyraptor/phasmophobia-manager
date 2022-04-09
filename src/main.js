@@ -1,5 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './assets/style/variables.scss'
+import './assets/style/Main.scss'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 import store from './store'
 
 Vue.config.productionTip = false
